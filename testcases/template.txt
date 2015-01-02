@@ -1,0 +1,24 @@
+{	// optional
+
+	// mangle vars
+
+	var RETS		// hasrets
+	var ARGS = A0 A1 A2 A3	// hasargs
+	var REC = REC		// hasrecv
+
+i:
+	{
+
+		// MACRO CODE
+		// mangle vars
+
+		// goto return
+		RETS = ...	// hasrets
+		goto o
+
+	}
+o:
+
+
+	OUTS = RETS	// hasrets
+}
