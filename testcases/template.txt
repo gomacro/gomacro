@@ -1,4 +1,4 @@
-{	// optional
+
 
 	// mangle vars
 
@@ -16,9 +16,14 @@ i:
 		RETS = ...	// hasrets
 		goto o
 
+
+		// tail recursion
+		if ... {
+
+		}
 	}
 o:
 
 
 	OUTS = RETS	// hasrets
-}
+

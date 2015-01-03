@@ -1,4 +1,4 @@
-// +build gomacro_1
+// -build gomacro_1
 
 package main
 
