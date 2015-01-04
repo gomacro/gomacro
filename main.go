@@ -345,16 +345,12 @@ func hanAction(c *cli.Context) {
 
 	codefile := c.GlobalString("f")
 
-	errfile := c.GlobalString("e")
-
 	need_use_stdout := c.GlobalString("o")
 
 	use_stdout := codefile == "" && need_use_stdout != ""
 
-	fsete := token.NewFileSet()
 	fsetc := token.NewFileSet()
-	fc, _ := parser.ParseFile(fsetc, codefile, nil, 0)
-	fe, _ := parser.ParseFile(fsete, errfile, nil, 0)
+	fc := errA(parser.ParseFile(fsetc, codefile, nil, 0))
 
 	imports := []string{
 		"\"github.com/goerr/goerr\"",
@@ -371,11 +367,11 @@ func hanAction(c *cli.Context) {
 	}
 
 	eh := errf{m: make(map[string]int)}
-
+/*
 	for _, s := range fe.Decls {
 		ast.Walk(&eh, s)
 	}
-
+*/
 	funny := func(s string) int { return eh.m[s] }
 
 	for _, s := range fc.Decls {
@@ -484,7 +480,7 @@ func main() {
 					Usage: "Foo.",
 				},
 			},
-			Usage:  "Merge handlers back",
+			Usage:  "Preprocess a package",
 			Action: hanAction,
 		},
 	}
