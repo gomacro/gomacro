@@ -477,18 +477,7 @@ func main() {
 	// Commands
 	cmdz := []cli.Command{
 		{
-			Name: "separate",
-			Flags: []cli.Flag{
-				cli.BoolFlag{
-					Name:  "f",
-					Usage: "Foo.",
-				},
-			},
-			Usage:  "Separate splits and strips errors handling",
-			Action: missingAction,
-		},
-		{
-			Name: "merge",
+			Name: "build",
 			Flags: []cli.Flag{
 				cli.BoolFlag{
 					Name:  "f",
@@ -498,78 +487,12 @@ func main() {
 			Usage:  "Merge handlers back",
 			Action: hanAction,
 		},
-		{
-			Name: "split",
-			Flags: []cli.Flag{
-				cli.BoolFlag{
-					Name:  "f",
-					Usage: "Foo.",
-				},
-			},
-			Usage:  "Split off the current error handling to an errfile",
-			Action: missingAction,
-		},
-		{
-			Name: "strip",
-			Flags: []cli.Flag{
-				cli.BoolFlag{
-					Name:  "f",
-					Usage: "Foo.",
-				},
-			},
-			Usage:  "Strip off the error handling from the client code",
-			Action: missingAction,
-		},
-		{
-			Name: "init",
-			Flags: []cli.Flag{
-				cli.BoolFlag{
-					Name:  "f",
-					Usage: "Foo.",
-				},
-			},
-			Usage:  "Create an empty errfile",
-			Action: missingAction,
-		},
-		{
-			Name: "ls",
-			Flags: []cli.Flag{
-				cli.BoolFlag{
-					Name:  "u",
-					Usage: "Unhandled errors only.",
-				},
-			},
-			Usage:  "List the handling of all errors",
-			Action: missingAction,
-		},
-		{
-			Name: "show",
-			Flags: []cli.Flag{
-				cli.BoolFlag{
-					Name:  "f",
-					Usage: "Foo.",
-				},
-			},
-			Usage:  "Show handling related to a function",
-			Action: missingAction,
-		},
-		{
-			Name: "status",
-			Flags: []cli.Flag{
-				cli.BoolFlag{
-					Name:  "f",
-					Usage: "Foo.",
-				},
-			},
-			Usage:  "Show cumulative statistics",
-			Action: missingAction,
-		},
 	}
 
 	app := cli.NewApp()
 	app.Flags = flagz
 	app.Commands = cmdz
-	app.Usage = "strip / add error handling to a go file"
+	app.Usage = "preprocess macro functions"
 	app.Version = app_version
 	app.Action = massageAction
 
