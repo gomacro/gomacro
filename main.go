@@ -8,7 +8,7 @@ import (
 	"go/printer"
 	"go/token"
 	"os"
-	"github.com/goerr/goerr"
+	"github.com/anlhord/goerr"
 )
 
 func massageAction(c *cli.Context) {
@@ -342,11 +342,10 @@ func (s *spewlord) Visit(node ast.Node) ast.Visitor {
 	return s
 }
 func hanActionDispatch(c *cli.Context) {
-	goerr.OR0(hanAction)
+	goerr.OR0(func(){hanAction(c)})
 }
 
 func hanAction(c *cli.Context) {
-
 	codefile := c.GlobalString("f")
 
 	need_use_stdout := c.GlobalString("o")

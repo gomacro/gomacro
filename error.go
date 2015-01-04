@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	. "github.com/goerr/goerr"
+	. "github.com/anlhord/goerr"
 	"go/ast"
 )
 
