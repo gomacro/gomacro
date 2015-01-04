@@ -12,7 +12,7 @@ import (
 )
 
 func massageAction(c *cli.Context) {
-	fmt.Fprintln(os.Stderr, "TODO :)")
+	fmt.Fprintln(os.Stderr, "Use the subcommand: -f myfile.go build")
 }
 
 type spewlord struct {
@@ -402,7 +402,7 @@ func hanAction(c *cli.Context) {
 }
 
 func missingAction(c *cli.Context) {
-	fmt.Fprintln(os.Stderr, "TODO :)")
+	fmt.Fprintln(os.Stderr, "ERROR: No such action. Use build")
 }
 
 func slicerm(baf *[]*ast.ImportSpec, n int) {
