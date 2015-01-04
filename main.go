@@ -8,6 +8,7 @@ import (
 	"go/printer"
 	"go/token"
 	"os"
+	"github.com/goerr/goerr"
 )
 
 func massageAction(c *cli.Context) {
@@ -340,6 +341,9 @@ func (s *spewlord) Visit(node ast.Node) ast.Visitor {
 
 	return s
 }
+func hanActionDispatch(c *cli.Context) {
+	goerr.OR0(hanAction)
+}
 
 func hanAction(c *cli.Context) {
 
@@ -481,7 +485,7 @@ func main() {
 				},
 			},
 			Usage:  "Preprocess a package",
-			Action: hanAction,
+			Action: hanActionDispatch,
 		},
 	}
 
